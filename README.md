@@ -54,7 +54,6 @@ Open index.html in your browser.
 
 Select your desired game and start playing! 🎮
 
-No server required — everything runs directly in the browser.
 
 
 
