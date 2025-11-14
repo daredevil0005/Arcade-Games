@@ -78,3 +78,5 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 📜 License
 
 This project is open source under the MIT License.
+© 2025 Pratik. All rights reserved.
+
