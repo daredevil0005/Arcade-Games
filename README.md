@@ -48,20 +48,6 @@ Arcade-Games/
 
 ---
 
-## ▶️ Getting Started
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/your-username/Arcade-Games.git
-   ```
-2. Open  
-   ```
-   index.html
-   ```  
-   in any browser.
-3. Select a game and play!
-
----
-
 ## 🔮 Future Improvements
 - High-score system  
 - Difficulty levels  
