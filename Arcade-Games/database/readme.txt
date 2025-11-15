@@ -12,4 +12,4 @@ How to run the Arcade Games Using PHP and MySQL
 
 6. Import info.sql file(given inside the zip package in the database file folder)
 
-7. Run the script http://localhost/AG
+7. Run the script http://localhost/YOUR_FOLDER_NAME
