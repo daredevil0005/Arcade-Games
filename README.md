@@ -1,81 +1,77 @@
-🎮 Arcade Games Collection
+# 🎮 Arcade Games Collection  
+A multi-game arcade platform built using **HTML, CSS, and JavaScript**, featuring classic browser games with smooth controls, clean UI, and organized assets.
 
-A web-based arcade gaming platform built using HTML, CSS, and JavaScript, featuring classic and modern mini-games such as Breakout, Ping Pong, Snake, Space Shooter, Car Racing, and more.
-The project also includes user login, registration, game UI, sound effects, and organized assets such as images, CSS, and music.
+---
 
+## 🚀 Features
+- Multiple playable arcade games:
+  - 🟦 **Breakout**
+  - 🏓 **Ping Pong**
+  - 🐍 **Snake**
+  - 🚗 **Car Racing**
+  - 🚀 **Space Shooter**
+  - 🃏 **Card Game**
+- Responsive & clean UI  
+- Background music and sound effects  
+- Login and Registration pages  
+- Well-organized folder structure  
+- No backend required — runs directly in browser
 
-🚀 Features
+---
 
-Multiple Classic Games
+## 📂 Project Structure
+```
+Arcade-Games/
+│── index.html
+│── main.html
+│── register.html
+│── breakout.html
+│── pingpong.html
+│── snake.html
+│── space.html
+│── car.html
+│── card.html
+│
+├── css/
+├── img/
+├── music/
+├── database/
+└── connection/
+```
 
-🟦 Breakout
+---
 
-🏓 Ping Pong
+## 🛠️ Technologies Used
+- **HTML5** – Game structure + canvas  
+- **CSS3** – Layout, styling  
+- **JavaScript** – Gameplay mechanics & interactions  
 
-🐍 Snake
+---
 
-🚗 Car Racing
+## ▶️ Getting Started
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-username/Arcade-Games.git
+   ```
+2. Open  
+   ```
+   index.html
+   ```  
+   in any browser.
+3. Select a game and play!
 
-🚀 Space Shooter
+---
 
-🃏 Card Game
+## 🔮 Future Improvements
+- High-score system  
+- Difficulty levels  
+- Mobile controls  
+- Enhanced animations  
 
-Responsive UI with HTML + CSS
+---
 
-Smooth gameplay using JavaScript
+## 📜 License  
+This project is licensed under the **MIT License**.  
+**© 2025 Pratik — Released under the MIT License.**
 
-Login & Registration system (basic front-end structure)
-
-Organized folders for images, CSS, database files, and audio
-
-Attractive animations and background music
-
-
-
-🛠️ Technologies Used
-
-HTML5 – Structure & canvas-based games
-
-CSS3 – Styling, layout, UI design
-
-JavaScript – Gameplay logic & animations
-
-Audio – Game sound effects
-
-
-
-▶️ How to Run the Project
-
-Download or clone the repository:
-
-git clone https://github.com/your-username/Arcade-Games.git
-
-Open index.html in your browser.
-
-Select your desired game and start playing! 🎮
-
-
-
-
-🧩 Future Enhancements
-
-Add local storage for high scores
-
-Add login authentication using backend
-
-Improve animations and add difficulty levels
-
-Add mobile-friendly touch controls
-
-
-
-🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to improve.
-
-
-📜 License
-
-This project is open source under the MIT License.
-© 2025 Pratik. All rights reserved.
-
+---
