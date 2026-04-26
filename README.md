@@ -1,63 +1,94 @@
-# 🎮 Arcade Games Collection  
-A multi-game arcade platform built using **HTML, CSS, and JavaScript**, featuring classic browser games with smooth controls, clean UI, and organized assets.
+# 🎮 Arcade Games Platform
+
+> 🚀 Browser-based multi-game system with interactive gameplay
+
+![HTML](https://img.shields.io/badge/HTML5-orange)
+![CSS](https://img.shields.io/badge/CSS3-blue)
+![JS](https://img.shields.io/badge/JavaScript-yellow)
+
+---
+
+## 🎯 Overview
+
+Arcade Games Platform is a **collection of classic browser-based games** built using HTML, CSS, and JavaScript.
+
+It provides a smooth and interactive gaming experience without requiring installation.
 
 ---
 
 ## 🚀 Features
-- Multiple playable arcade games:
-  - 🟦 **Breakout**
-  - 🏓 **Ping Pong**
-  - 🐍 **Snake**
-  - 🚗 **Car Racing**
-  - 🚀 **Space Shooter**
-  - 🃏 **Card Game**
-- Responsive & clean UI  
-- Background music and sound effects  
-- Login and Registration pages  
-- Well-organized folder structure  
-- No backend required — runs directly in browser
+
+* 🎮 Multiple games:
+
+  * Breakout
+  * Ping Pong
+  * Snake
+  * Car Racing
+  * Space Shooter
+  * Card Game
+* 🎵 Background music & sound effects
+* 🧑 Login & Registration pages
+* 📱 Responsive UI
+* ⚡ Runs directly in browser
+
+---
+
+## 🧠 Highlights
+
+* Multiple games in one platform
+* Clean UI with smooth controls
+* No backend required
+* Lightweight and fast
+
+---
+
+## 🛠️ Tech Stack
+
+* HTML5 (Canvas)
+* CSS3
+* JavaScript
+
+---
+
+## ⚙️ How to Run
+
+1. Download or clone project
+2. Open `index.html` in browser
 
 ---
 
 ## 📂 Project Structure
+
 ```
 Arcade-Games/
 │── index.html
 │── main.html
-│── register.html
 │── breakout.html
-│── pingpong.html
 │── snake.html
 │── space.html
 │── car.html
 │── card.html
-│
 ├── css/
 ├── img/
 ├── music/
-├── database/
-└── connection/
 ```
 
 ---
 
-## 🛠️ Technologies Used
-- **HTML5** – Game structure + canvas  
-- **CSS3** – Layout, styling  
-- **JavaScript** – Gameplay mechanics & interactions  
+## 🚀 Future Improvements
+
+* High-score system
+* Difficulty levels
+* Mobile controls
+* Advanced animations
 
 ---
 
-## 🔮 Future Improvements
-- High-score system  
-- Difficulty levels  
-- Mobile controls  
-- Enhanced animations  
+## 👨‍💻 Author
+
+**Pratik S. Dabhane**
 
 ---
 
-## 📜 License  
-This project is licensed under the **MIT License**.  
-**© 2025 Pratik — Released under the MIT License.**
+⭐ Enjoy playing!
 
----
