@@ -52,8 +52,19 @@ It provides a smooth and interactive gaming experience without requiring install
 
 ## ⚙️ How to Run
 
-1. Download or clone project
-2. Open `index.html` in browser
+1. Download the zip file
+
+2. Extract the file and copy folder
+
+3.Paste inside root directory(for xampp xampp/htdocs, for wamp wamp/www, for lamp var/www/HTML)
+
+4.Open PHPMyAdmin (http://localhost/phpmyadmin)
+
+5. Create a database with the name 'game'
+
+6. Import info.sql file(given inside the zip package in the database file folder)
+
+7. Run the script http://localhost/YOUR_FOLDER_NAME
 
 ---
 
