@@ -62,20 +62,14 @@ body{
 }
 
 .logout-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  padding: 8px 14px;
-  background: red;
+  background-color: red;
   color: white;
-  font-weight: bold;
-  border-radius: 6px;
+  padding: 8px 15px;
+  border-radius: 5px;
   text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: background 0.3s;
-  z-index: 1000;
+  color: white;
+  font-size: 14px;
 }
-
 .logout-btn:hover {
-  background: darkred;
+  background-color: darkred;
 }
