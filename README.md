@@ -62,7 +62,7 @@ It provides a smooth and interactive gaming experience without requiring install
 
 5. Create a database with the name 'game'
 
-6. Import info.sql file(given inside the zip package in the database file folder)
+6. Import info.sql file(given inside the database folder)
 
 7. Run the script http://localhost/YOUR_FOLDER_NAME
 
