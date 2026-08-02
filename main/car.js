@@ -642,4 +642,103 @@ function update(step) {
         (lines[startPos].curve / 5000) *
         step *
         speed;
-}
+     
+            if (KEYS.ArrowRight) {
+
+        hero.style.backgroundPosition = "-220px 0";
+
+        playerX +=
+            0.007 * step * speed;
+
+    }
+
+    else if (KEYS.ArrowLeft) {
+
+        hero.style.backgroundPosition = "0 0";
+
+        playerX -=
+            0.007 * step * speed;
+
+    }
+
+    else {
+
+        hero.style.backgroundPosition =
+            "-110px 0";
+
+    }
+
+    playerX =
+        playerX.clamp(-3, 3);
+
+            if (inGame && KEYS.ArrowUp)
+
+        speed =
+            accelerate(speed, accel, step);
+
+    else if (KEYS.ArrowDown)
+
+        speed =
+            accelerate(speed, breaking, step);
+
+    else
+
+        speed =
+            accelerate(speed, decel, step);
+
+    if (
+
+        Math.abs(playerX) > 0.55 &&
+
+        speed >= maxOffSpeed
+
+    ) {
+
+        speed =
+            accelerate(
+                speed,
+                offDecel,
+                step
+            );
+
+    }
+
+    speed =
+        speed.clamp(
+            0,
+            maxSpeed
+        );
+
+            const current =
+        map[mapIndex];
+
+    const use =
+
+        current.from < scoreVal &&
+
+        current.to > scoreVal;
+
+    if (use)
+
+        sectionProg +=
+            speed * step;
+
+    lines[endPos].curve =
+        use ? current.curve(sectionProg) : 0;
+
+    lines[endPos].y =
+        use ? current.height(sectionProg) : 0;
+
+    lines[endPos].special = null;
+
+    if (current.to <= scoreVal) {
+
+        mapIndex++;
+
+        sectionProg = 0;
+
+        lines[endPos].special =
+            map[mapIndex].special;
+
+    }
+  }
