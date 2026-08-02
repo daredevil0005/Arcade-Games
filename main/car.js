@@ -94,3 +94,53 @@ const LANE = {
     C: 1.2
 };
 
+// ==========================================================
+// Helper Functions
+// ==========================================================
+
+// Number helpers
+Number.prototype.pad = function (numZeros, char = "0") {
+    let n = Math.abs(this);
+    let zeros = Math.max(0, numZeros - Math.floor(n).toString().length);
+
+    let zeroString = Math.pow(10, zeros)
+        .toString()
+        .substr(1)
+        .replace(/0/g, char);
+
+    return zeroString + n;
+};
+
+Number.prototype.clamp = function (min, max) {
+    return Math.max(min, Math.min(this, max));
+};
+
+// Time
+const timestamp = () => new Date().getTime();
+
+// Physics
+const accelerate = (velocity, acceleration, deltaTime) => {
+    return velocity + acceleration * deltaTime;
+};
+
+// Collision
+const isCollide = (x1, w1, x2, w2) => {
+    return (x1 - x2) ** 2 <= (w1 + w2) ** 2;
+};
+
+// Random integer
+function getRand(min, max) {
+    return (Math.random() * (max - min) + min) | 0;
+}
+
+// Random object property
+function randomProperty(object) {
+    const keys = Object.keys(object);
+    return object[keys[(Math.random() * keys.length) | 0]];
+}
+
+// Sleep helper
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
