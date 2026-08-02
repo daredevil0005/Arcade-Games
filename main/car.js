@@ -441,3 +441,102 @@ let lines = [];
 // Enemy Cars
 let cars = [];
 
+// ==========================================================
+// Map Generation
+// ==========================================================
+
+function getFun(value) {
+    return () => value;
+}
+
+function genMap() {
+
+    const map = [];
+
+    for (let i = 0; i < mapLength; i += getRand(0, 50)) {
+
+        const section = {
+            from: i,
+            to: (i = i + getRand(300, 600))
+        };
+
+        const randHeight = getRand(-5, 5);
+        const randCurve = getRand(5, 30) * (Math.random() >= 0.5 ? 1 : -1);
+        const randInterval = getRand(20, 40);
+
+        if (Math.random() > 0.9) {
+
+            Object.assign(section, {
+
+                curve: () => randCurve,
+                height: () => randHeight
+
+            });
+
+        }
+
+        else if (Math.random() > 0.8) {
+
+            Object.assign(section, {
+
+                curve: () => 0,
+
+                height: (i) =>
+                    Math.sin(i / randInterval) * 1000
+
+            });
+
+        }
+
+        else if (Math.random() > 0.8) {
+
+            Object.assign(section, {
+
+                curve: () => 0,
+                height: () => randHeight
+
+            });
+
+        }
+
+        else {
+
+            Object.assign(section, {
+
+                curve: () => randCurve,
+                height: () => 0
+
+            });
+
+        }
+
+        map.push(section);
+
+    }
+
+    map.push({
+
+        from: mapLength,
+
+        to: mapLength + N,
+
+        curve: () => 0,
+
+        height: () => 0,
+
+        special: ASSETS.IMAGE.FINISH
+
+    });
+
+    map.push({
+
+        from: Infinity
+
+    });
+
+    return map;
+
+}
+
+const map = genMap();
+
