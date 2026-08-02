@@ -406,3 +406,38 @@ class AudioManager {
 
 }
 
+// ==========================================================
+// Global Variables
+// ==========================================================
+
+// High Scores
+const highscores = [];
+
+// Timing
+let then = timestamp();
+
+// Audio
+let audio;
+
+// Game State
+let inGame;
+let start;
+
+let playerX;
+let speed;
+let scoreVal;
+
+let pos;
+let cloudOffset;
+
+let sectionProg;
+let mapIndex;
+
+let countDown;
+
+// Road
+let lines = [];
+
+// Enemy Cars
+let cars = [];
+
