@@ -265,3 +265,22 @@ class Line {
 
 }
 
+// ==========================================================
+// Car Class
+// ==========================================================
+
+class Car {
+
+    constructor(position, sprite, lane) {
+
+        this.pos = position;
+        this.type = sprite;
+        this.lane = lane;
+
+        this.element = document.createElement("div");
+
+        road.appendChild(this.element);
+    }
+
+}
+
