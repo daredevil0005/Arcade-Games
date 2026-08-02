@@ -917,4 +917,207 @@ for (
 
     line.clearSprites();
 
+   // ----------------------------------------------------------
+// Draw Trees
+// ----------------------------------------------------------
+
+if (n % 10 === 0)
+    line.drawSprite(depth, 0, ASSETS.IMAGE.TREE, -2);
+
+if ((n + 5) % 10 === 0)
+    line.drawSprite(depth, 0, ASSETS.IMAGE.TREE, 1.3);
+
+// ----------------------------------------------------------
+// Finish Line
+// ----------------------------------------------------------
+
+if (line.special) {
+
+    line.drawSprite(
+        depth,
+        0,
+        line.special,
+        line.special.offset || 0
+    );
+
+}
+
+// ----------------------------------------------------------
+// Enemy Cars
+// ----------------------------------------------------------
+
+for (const car of cars) {
+
+    if ((car.pos | 0) === (n % N)) {
+
+        line.drawSprite(
+
+            depth,
+
+            car.element,
+
+            car.type,
+
+            car.lane
+
+        );
+
+    }
+
+}
+if (line.Y >= maxY)
+    continue;
+
+maxY = line.Y;
+
+const even = ((n / 2) | 0) % 2;
+
+const grass =
+    ASSETS.COLOR.GRASS[even];
+
+const rumble =
+    ASSETS.COLOR.RUMBLE[even];
+
+const tar =
+    ASSETS.COLOR.TAR[even];
+
+const previous =
+    lines[(n - 1) % N];
     
+    drawQuad(
+
+    line.elements[0],
+
+    depth,
+
+    grass,
+
+    width / 4,
+
+    previous.Y,
+
+    halfWidth + 2,
+
+    width / 4,
+
+    line.Y,
+
+    halfWidth
+
+);
+
+drawQuad(
+
+    line.elements[1],
+
+    depth,
+
+    grass,
+
+    (width / 4) * 3,
+
+    previous.Y,
+
+    halfWidth + 2,
+
+    (width / 4) * 3,
+
+    line.Y,
+
+    halfWidth
+
+);
+
+drawQuad(
+
+    line.elements[2],
+
+    depth,
+
+    rumble,
+
+    previous.X,
+
+    previous.Y,
+
+    previous.W * 1.15,
+
+    line.X,
+
+    line.Y,
+
+    line.W * 1.15
+
+);
+
+drawQuad(
+
+    line.elements[3],
+
+    depth,
+
+    tar,
+
+    previous.X,
+
+    previous.Y,
+
+    previous.W,
+
+    line.X,
+
+    line.Y,
+
+    line.W
+
+);
+
+if (!even) {
+
+    drawQuad(
+
+        line.elements[4],
+
+        depth,
+
+        ASSETS.COLOR.RUMBLE[1],
+
+        previous.X,
+
+        previous.Y,
+
+        previous.W * 0.4,
+
+        line.X,
+
+        line.Y,
+
+        line.W * 0.4
+
+    );
+
+    drawQuad(
+
+        line.elements[5],
+
+        depth,
+
+        tar,
+
+        previous.X,
+
+        previous.Y,
+
+        previous.W * 0.35,
+
+        line.X,
+
+        line.Y,
+
+        line.W * 0.35
+
+    );
+
+}
+
+
