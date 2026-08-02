@@ -1123,3 +1123,59 @@ if (!even) {
 }
 
 }
+
+// ==========================================================
+// Reset Game
+// ==========================================================
+
+function reset() {
+
+    inGame = false;
+
+    start = timestamp();
+
+    countDown = map[map.length - 2].to / 130 + 10;
+
+    playerX = 0;
+    speed = 0;
+    scoreVal = 0;
+
+    pos = 0;
+    cloudOffset = 0;
+
+    sectionProg = 0;
+    mapIndex = 0;
+
+    for (const line of lines) {
+        line.curve = 0;
+        line.y = 0;
+    }
+
+    text.innerText = "INSERT COIN";
+    text.classList.add("blink");
+
+    road.style.opacity = 0.4;
+
+    hud.style.display = "none";
+    home.style.display = "block";
+
+    tacho.style.display = "block";
+}
+
+// ==========================================================
+// High Scores
+// ==========================================================
+
+function updateHighscore() {
+
+    const total = Math.min(12, highscores.length);
+
+    for (let i = 0; i < total; i++) {
+
+        highscore.children[i].innerHTML =
+            `${(i + 1).pad(2, "&nbsp;")}. ${highscores[i]}`;
+
+    }
+
+}
+
