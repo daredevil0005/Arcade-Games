@@ -540,3 +540,70 @@ function genMap() {
 
 const map = genMap();
 
+// ==========================================================
+// Game Controls
+// ==========================================================
+
+window.addEventListener("keyup", async function (e) {
+
+    switch (e.code) {
+
+        case "KeyM":
+
+            e.preventDefault();
+
+            audio.volume = audio.volume === 0 ? 1 : 0;
+
+            break;
+
+        case "KeyC":
+
+            e.preventDefault();
+
+            if (inGame) return;
+
+            text.classList.remove("blink");
+
+            text.innerText = "3";
+            audio.play("beep");
+
+            await sleep(1000);
+
+            text.innerText = "2";
+            audio.play("beep");
+
+            await sleep(1000);
+
+            text.innerText = "1";
+            audio.play("beep");
+
+            await sleep(1000);
+
+            reset();
+
+            home.style.display = "none";
+
+            road.style.opacity = 1;
+
+            hero.style.display = "block";
+
+            hud.style.display = "block";
+
+            audio.play("beep", 500);
+
+            inGame = true;
+
+            break;
+
+        case "Escape":
+
+            e.preventDefault();
+
+            reset();
+
+            break;
+
+    }
+
+});
+
