@@ -35,8 +35,8 @@ addEventListener("load", (event) => {
 var ballRadius = 10;
 var ballX = canvas.width / 2;
 var ballY = canvas.height / 2;
-var ballSpeedX = 8;
-var ballSpeedY = 8;
+var ballSpeedX = 5;
+var ballSpeedY = 5;
 
 // Define paddle properties
 var paddleHeight = 80;
@@ -166,8 +166,9 @@ function playerWin(player) {
 function reset() {
   ballX = canvas.width / 2;
   ballY = canvas.height / 2;
-  ballSpeedX = -ballSpeedX;
-  ballSpeedY = Math.random() * 10 - 5;
+
+  ballSpeedX = ballSpeedX > 0 ? -5 : 5;
+  ballSpeedY = Math.random() > 0.5 ? 5 : -5;
 }
 
 // Draw objects on canvas
