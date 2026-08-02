@@ -35,8 +35,8 @@ addEventListener("load", (event) => {
 var ballRadius = 10;
 var ballX = canvas.width / 2;
 var ballY = canvas.height / 2;
-var ballSpeedX = 8;
-var ballSpeedY = 8;
+var ballSpeedX = 300;
+var ballSpeedY = 300;
 
 // Define paddle properties
 var paddleHeight = 80;

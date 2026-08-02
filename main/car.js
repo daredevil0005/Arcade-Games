@@ -1,6 +1,9 @@
 const musicSound = new Audio('music/car.mp3');
+const carMusic = new Audio('assets/car_music.mp3'); // adjust path if needed
+carMusic.loop = true;
+carMusic.volume = 0.7;
+
 window.HUB_EVENTS = {
-  musicSound.play();
   ASSET_ADDED: "ASSET_ADDED",
   ASSET_DELETED: "ASSET_DELETED",
   ASSET_DESELECTED: "ASSET_DESELECTED",
@@ -127,3 +130,14 @@ window.HUB_EVENTS = {
 }, window.CP.exitedLoop = function (E) {
   window.CP.PenTimer.exitedLoop(E)
 };
+
+// try autoplay; if blocked, start on first user interaction
+carMusic.play().catch(() => {
+    const startMusic = () => {
+        carMusic.play().catch(() => {/* final fallback - ignore */});
+        window.removeEventListener('pointerdown', startMusic);
+        window.removeEventListener('keydown', startMusic);
+    };
+    window.addEventListener('pointerdown', startMusic, { once: true });
+    window.addEventListener('keydown', startMusic, { once: true });
+});
