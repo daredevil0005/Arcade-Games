@@ -144,3 +144,31 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// ==========================================================
+// Road Rendering Helper
+// ==========================================================
+
+function drawQuad(element, layer, color, x1, y1, w1, x2, y2, w2) {
+
+    element.style.zIndex = layer;
+    element.style.background = color;
+
+    element.style.top = y2 + "px";
+    element.style.left = (x1 - w1 / 2 - w1) + "px";
+
+    element.style.width = (w1 * 3) + "px";
+    element.style.height = (y1 - y2) + "px";
+
+    const leftOffset =
+        w1 +
+        x2 -
+        x1 +
+        Math.abs(w2 / 2 - w1 / 2);
+
+    element.style.clipPath =
+        `polygon(${leftOffset}px 0,
+        ${leftOffset + w2}px 0,
+        66.66% 100%,
+        33.33% 100%)`;
+}
+
