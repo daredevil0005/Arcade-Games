@@ -741,4 +741,180 @@ function update(step) {
             map[mapIndex].special;
 
     }
-  }
+    // ----------------------------------------------------------
+// HUD / Timer
+// ----------------------------------------------------------
+
+if (!inGame) {
+
+    speed = accelerate(speed, breaking, step);
+    speed = speed.clamp(0, maxSpeed);
+
+}
+else if (countDown <= 0 || lines[startPos].special) {
+
+    tacho.style.display = "none";
+
+    home.style.display = "block";
+
+    road.style.opacity = 0.4;
+
+    text.innerText = "INSERT COIN";
+
+    highscores.push(lap.innerText);
+
+    highscores.sort();
+
+    updateHighscore();
+
+    inGame = false;
+
+}
+else {
+
+    time.innerText = (countDown | 0).pad(3);
+
+    score.innerText = (scoreVal | 0).pad(8);
+
+    tacho.innerText = speed | 0;
+
+    const currentTime =
+        new Date(timestamp() - start);
+
+    lap.innerText =
+        `${currentTime.getMinutes()}'${currentTime
+            .getSeconds()
+            .pad(2)}"${currentTime
+            .getMilliseconds()
+            .pad(3)}`;
+
+}
+
+// ----------------------------------------------------------
+// Engine Sound
+// ----------------------------------------------------------
+
+if (speed > 0) {
+
+    audio.play("engine", speed * 4);
+
+}
+
+// ----------------------------------------------------------
+// Clouds
+// ----------------------------------------------------------
+
+cloud.style.backgroundPosition =
+    `${
+
+        (cloudOffset -=
+            lines[startPos].curve *
+            step *
+            speed *
+            0.13) | 0
+
+    }px 0`;
+
+    // ----------------------------------------------------------
+// Enemy Cars
+// ----------------------------------------------------------
+
+for (const car of cars) {
+
+    car.pos =
+        (car.pos + enemy_speed * step) % N;
+
+    // Respawn
+
+    if ((car.pos | 0) === endPos) {
+
+        if (speed < 30)
+
+            car.pos = startPos;
+
+        else
+
+            car.pos = endPos - 2;
+
+        car.lane = randomProperty(LANE);
+
+    }
+
+    // Collision
+
+    const offsetRatio = 5;
+
+    if (
+
+        (car.pos | 0) === startPos &&
+
+        isCollide(
+
+            playerX * offsetRatio + LANE.B,
+
+            0.5,
+
+            car.lane,
+
+            0.5
+
+        )
+
+    ) {
+
+        speed = Math.min(hitSpeed, speed);
+
+        if (inGame)
+
+            audio.play("honk");
+
+    }
+
+}
+// ----------------------------------------------------------
+// Draw Road
+// ----------------------------------------------------------
+
+let maxY = height;
+
+let camHeight =
+    H + lines[startPos].y;
+
+let x = 0;
+
+let dx = 0;
+
+for (
+
+    let n = startPos;
+
+    n < startPos + N;
+
+    n++
+
+) {
+
+    const line = lines[n % N];
+
+    const depth =
+        N * 2 - n;
+
+    line.project(
+
+        playerX * roadW - x,
+
+        camHeight,
+
+        startPos * segL -
+
+        (n >= N ? N * segL : 0)
+
+    );
+
+    x += dx;
+
+    dx += line.curve;
+
+    line.clearSprites();
+
+    
