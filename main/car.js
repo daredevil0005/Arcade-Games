@@ -607,3 +607,39 @@ window.addEventListener("keyup", async function (e) {
 
 });
 
+// ==========================================================
+// Update
+// ==========================================================
+
+function update(step) {
+
+    // ---------------------------------
+    // Move player forward
+    // ---------------------------------
+
+    pos += speed;
+
+    while (pos >= N * segL)
+        pos -= N * segL;
+
+    while (pos < 0)
+        pos += N * segL;
+
+    const startPos = (pos / segL) | 0;
+
+    const endPos =
+        (startPos + N - 1) % N;
+
+    scoreVal += speed * step;
+
+    countDown -= step;
+
+    // ---------------------------------
+    // Road curvature
+    // ---------------------------------
+
+    playerX -=
+        (lines[startPos].curve / 5000) *
+        step *
+        speed;
+}
