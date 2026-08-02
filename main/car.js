@@ -172,3 +172,19 @@ function drawQuad(element, layer, color, x1, y1, w1, x2, y2, w2) {
         33.33% 100%)`;
 }
 
+// ==========================================================
+// Keyboard Input
+// ==========================================================
+
+const KEYS = {};
+
+function updateKey(event) {
+
+    KEYS[event.code] = event.type === "keydown";
+
+    event.preventDefault();
+}
+
+window.addEventListener("keydown", updateKey);
+window.addEventListener("keyup", updateKey);
+
