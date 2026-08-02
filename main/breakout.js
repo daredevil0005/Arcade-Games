@@ -26,8 +26,8 @@ const ball = {
   y: canvas.height - 20,
   size: 10,
   speed: 2,
-  dx: 4,
-  dy: -4,
+  dx: 2.5,
+  dy: -2.5,
 };
 
 const paddle = {
