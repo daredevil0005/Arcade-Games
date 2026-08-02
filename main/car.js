@@ -284,3 +284,125 @@ class Car {
 
 }
 
+// ==========================================================
+// Audio Manager
+// ==========================================================
+
+class AudioManager {
+
+    constructor() {
+
+        this.audioCtx = new AudioContext();
+
+        this.destination =
+            this.audioCtx.createGain();
+
+        this.destination.connect(
+            this.audioCtx.destination
+        );
+
+        this.files = {};
+
+        this.destination.gain.value = 1;
+
+        this.load(
+            ASSETS.AUDIO.theme,
+            "theme",
+            (key) => {
+
+                const source =
+                    this.audioCtx.createBufferSource();
+
+                source.buffer = this.files[key];
+
+                const gain =
+                    this.audioCtx.createGain();
+
+                gain.gain.value = 0.6;
+
+                source.connect(gain);
+
+                gain.connect(this.destination);
+
+                source.loop = true;
+
+                source.start(0);
+
+            }
+        );
+
+    }
+
+    get volume() {
+
+        return this.destination.gain.value;
+
+    }
+
+    set volume(value) {
+
+        this.destination.gain.value = value;
+
+    }
+
+    play(key, pitch = 0) {
+
+        if (!this.files[key]) {
+
+            this.load(
+                ASSETS.AUDIO[key] || key,
+                key,
+                () => this.play(key, pitch)
+            );
+
+            return;
+
+        }
+
+        const source =
+            this.audioCtx.createBufferSource();
+
+        source.buffer = this.files[key];
+
+        if (pitch)
+            source.detune.value = pitch;
+
+        source.connect(this.destination);
+
+        source.start(0);
+
+    }
+
+    load(src, key, callback) {
+
+        const request = new XMLHttpRequest();
+
+        request.open("GET", src, true);
+
+        request.responseType = "arraybuffer";
+
+        request.onload = () => {
+
+            this.audioCtx.decodeAudioData(
+
+                request.response,
+
+                (buffer) => {
+
+                    this.files[key] = buffer;
+
+                    if (callback)
+                        callback(key);
+
+                }
+
+            );
+
+        };
+
+        request.send();
+
+    }
+
+}
+
