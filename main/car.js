@@ -369,9 +369,6 @@ class AudioManager {
 
         source.connect(this.destination);
 
-        if(key === "music") {
-            source.loop = true;
-        }
         source.start(0);
 
     }
@@ -593,8 +590,6 @@ window.addEventListener("keyup", async function (e) {
             hud.style.display = "block";
 
             audio.play("beep", 500);
-
-            audio.play("music");
 
             inGame = true;
 
