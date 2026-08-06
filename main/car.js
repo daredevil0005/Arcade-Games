@@ -53,8 +53,6 @@ const ASSETS = {
         honk: "music/honk.wav",
         beep: "music/beep.wav",
 
-        // Local background music
-        music: "music/car.mp3"
     }
 };
 
