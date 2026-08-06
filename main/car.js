@@ -49,7 +49,6 @@ const ASSETS = {
 
     AUDIO: {
         theme: "music/car.mp3",
-        engine: "music/engine.wav",
         honk: "music/honk.wav",
         beep: "music/beep.wav",
 
