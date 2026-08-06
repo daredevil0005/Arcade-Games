@@ -562,6 +562,8 @@ window.addEventListener("keyup", async function (e) {
 
             if (inGame) return;
 
+            await audio.audioCtx.resume();
+
             text.classList.remove("blink");
 
             text.innerText = "3";
