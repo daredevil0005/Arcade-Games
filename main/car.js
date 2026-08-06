@@ -48,10 +48,10 @@ const ASSETS = {
     },
 
     AUDIO: {
-        theme: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/155629/theme.mp3",
-        engine: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/155629/engine.wav",
-        honk: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/155629/honk.wav",
-        beep: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/155629/beep.wav",
+        theme: "music/car.mp3",
+        engine: "music/engine.wav",
+        honk: "music/honk.wav",
+        beep: "music/beep.wav",
 
         // Local background music
         music: "music/car.mp3"
